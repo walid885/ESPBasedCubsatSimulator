@@ -10,7 +10,7 @@
 #define LED_STATUS 2  // GPIO2 (D4) - Built-in LED for status
 
 // I2C Addresses
-#define LCD_ADDRESS 0x09
+#define LCD_ADDRESS 0x27
 #define ESP32_MASTER_ADDRESS 0x08
 #define ESP8266_SLAVE_ADDRESS 0x09
 
@@ -85,19 +85,19 @@ void loop() {
   
   // Update telemetry data
   if (currentTime - lastTelemetryUpdate >= TELEMETRY_INTERVAL) {
-    //updateTelemetry();
+    updateTelemetry();
     lastTelemetryUpdate = currentTime;
   }
   
   // Update display
   if (currentTime - lastDisplayUpdate >= DISPLAY_UPDATE_INTERVAL) {
-   // updateDisplay();
+    updateDisplay();
     lastDisplayUpdate = currentTime;
   }
   
   // System health check
   if (currentTime - lastHealthCheck >= HEALTH_CHECK_INTERVAL) {
-    //performHealthCheck();
+    performHealthCheck();
     lastHealthCheck = currentTime;
   }
   
